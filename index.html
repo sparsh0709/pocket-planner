@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- connect-src 'self': the browser itself blocks this app from sending data to any other site. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Pocket Planner</title>
+<meta name="description" content="A quick expense and budget tracker for university students. Works offline, with no accounts and no bank or UPI access.">
+<meta name="theme-color" content="#0E1B3D">
+<meta name="apple-mobile-web-app-title" content="Pocket Planner">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<link rel="preload" href="./fonts/jakarta-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./app.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<div class="shell">
+  <nav class="nav" aria-label="Main">
+    <p class="brand" aria-hidden="true">Pocket Planner</p>
+    <a class="tab" href="#home" data-nav="home" data-icon="home">Home</a>
+    <a class="tab" href="#spends" data-nav="spends" data-icon="list">Spends</a>
+    <button type="button" class="add" id="add" aria-label="Add expense" data-icon="plus" data-key="add"><span class="add-label">Add expense</span></button>
+    <a class="tab" href="#budget" data-nav="budget" data-icon="pie">Budget</a>
+    <a class="tab" href="#more" data-nav="more" data-icon="dots">More</a>
+  </nav>
+  <div class="page">
+    <header class="topbar">
+      <h1 id="title" tabindex="-1">Home</h1>
+      <div class="monthnav" id="month-nav" role="group" aria-label="Choose month">
+        <button type="button" id="prev-month" aria-label="Previous month" data-icon="left"></button>
+        <span id="month-label" class="num" aria-live="polite"></span>
+        <button type="button" id="next-month" aria-label="Next month" data-icon="right"></button>
+      </div>
+    </header>
+    <main id="view"><noscript>Pocket Planner needs JavaScript to run.</noscript></main>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
